@@ -1,0 +1,20 @@
+name: OMC-Lang-Addnon
+version: 1.0-SNAPSHOT
+main: org.ozaii.omclangaddnon.OLA
+commands:
+  pm:
+    description: Sends a private message to another player
+    usage: /pm <player> <message>
+    aliases: [privateMessage]
+  global:
+    description: Sends a global message in a chat
+    usage: /global  <message>
+    aliases: [ globalMessage ]
+  allchat:
+    description: Toggles private messages on or off
+    usage: /allchat global/private on/off
+
+permissions:
+  pm.use:
+    description: Allows the player to send private messages
+    default: true
