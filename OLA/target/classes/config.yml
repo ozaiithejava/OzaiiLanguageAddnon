@@ -1,0 +1,57 @@
+prefixes:
+  global: "&8[&6Global&8]"
+  private: "&8[&dOzel&8]"
+
+colors:
+  private: "&d"
+  global: "&6"
+  player: "&e"
+
+messages:
+  private-message-sender: "&8[&dOzel&8] &e{sender} &7-> &e{receiver}&7: &f{message}"
+  private-message-receiver: "&8[&dOzel&8] &e{sender} &7-> &e{receiver}&7: &f{message}"
+  only-players: "&cBu komut yalnizca oyuncular tarafindan &6kullanilabilir."
+  cooldown: "&6Sohbet icin beklemeniz gerekiyor. &cKalan sure: &e{time}s"
+  global-usage: "&cDogru kullanim: &6/globalmessage &e<mesaj>"
+  private-usage: "&cDogru kullanim: &6/pm &e<oyuncu_adi> <mesaj>"
+  no-permission: "&cBu komutu kullanmak icin &6gerekli izne sahip degilsiniz."
+  error-invalid-cooldown-time: "&cGecersiz cooldown suresi &6girildi!"
+  global-message-sent: "&aMesajiniz &6basariyla gonderildi."
+  private-disabled: "&c{player} &6adli oyuncu ozel mesajlari kabul etmiyor."
+  player-not-found: "&cBu oyuncu &6cevrimdisi."
+  private-message-sent: "&aOzel mesajiniz &e{target} &6adli oyuncuya gonderildi."
+  open-global-message: "&cGlobal sohbeti kullanabilmek icin &6global mesajlari acmalisiniz."
+  chat-disabled: "&cSohbet su anda &6devre disi. &cMesaj gondermek icin izniniz yok."
+  usage: "&cDogru kullanim: &6/pm &e<oyuncu_adi> <mesaj>"
+  self-message: "&cKendinize mesaj gonderemezsiniz."
+  player-blocked: "&c{player} &6adli oyuncu sizi engelledi ve mesaj gonderilemez."
+  pcooldown: "&cOzel mesaj gondermeden once beklemeniz gerekiyor. Kalan sure: &e{time}s"
+cooldowns:
+  global-time: 30 # Varsayilan cooldown suresi (saniye)
+  time: 10 # Ozel mesajlar icin cooldown suresi (saniye)
+  enabled: true # Cooldown sistemini etkinlestir
+
+database:
+  globalMessageTable: "global_message_settings"
+  privateMessageTable: "private_message_settings"
+  blockTable: "blocked_player_table"
+
+commands:
+  chat-toggle:
+    usage: "&cDogru kullanim: &6/chattoggle &e<global/private> <on/off>"
+    invalid-type: "&cGecersiz sohbet turu. &6Gecerli turler: &eglobal&7, &eprivate"
+    private:
+      enabled: "&aOzel mesajlar &6acildi."
+      disabled: "&cOzel mesajlar &6kapatildi."
+    global:
+      enabled: "&aGlobal mesajlar &6acildi."
+      disabled: "&cGlobal mesajlar &6kapatildi."
+
+settings:
+  chatstatus:
+    enabled : false # sohbeti kullanım
+
+permissions:
+  chat-bypass: "chatcontrol.bypass" # Sohbet göndermek için gerekli izin
+
+
