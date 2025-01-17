@@ -174,9 +174,10 @@ settings:
 permissions:
   chat-bypass: "chatcontrol.bypass" # Sohbet göndermek için gerekli izin
 ```
+### Dependencies
 
-
-
+##### - OMC
+##### - PLACEHOLDER API
 
 
 If you have any issues or need help, please contact the plugin author or create an issue in the GitHub repository.
