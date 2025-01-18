@@ -1,3 +1,4 @@
+**Attention:** Please download the V3 version. The first folder you see is the `src` directory.
 
 # OLA OMC Addon for Global and Private Chat
 
