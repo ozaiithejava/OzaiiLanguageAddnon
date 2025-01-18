@@ -123,7 +123,7 @@ settings:
 
 This plugin is licensed under the MIT License. See the LICENSE file for details.
 
-## Config For TR-Turkhis
+## Config For EN-Eng
 
 ```yml
 
@@ -182,6 +182,69 @@ settings:
 
 permissions:
   chat-bypass: "chatcontrol.bypass" # Permission required to send chat messages
+
+```
+
+## Config For TR-Turkhis
+
+```yml
+
+prefixes:
+  global: "&8[&6Global&8]"
+  private: "&8[&dÖzel&8]"
+
+colors:
+  private: "&d"
+  global: "&6"
+  player: "&e"
+
+messages:
+  private-message-sender: "&8[&dÖzel&8] &e{sender} &7-> &e{receiver}&7: &f{message}"
+  private-message-receiver: "&8[&dÖzel&8] &e{sender} &7-> &e{receiver}&7: &f{message}"
+  only-players: "&cBu komut yalnızca &6oyuncular &ctarafından kullanılabilir."
+  cooldown: "&6Sohbet için beklemeniz gerekiyor. &cKalan süre: &e{time}s"
+  global-usage: "&cDoğru kullanım: &6/globalmessage &e<mesaj>"
+  private-usage: "&cDoğru kullanım: &6/pm &e<oyuncu_adi> <mesaj>"
+  no-permission: "&cBu komutu kullanmak için &6gerekli izne &csahip değilsiniz."
+  error-invalid-cooldown-time: "&cGeçersiz bekleme süresi &6girildi!"
+  global-message-sent: "&aMesajınız &6başarıyla gönderildi."
+  private-disabled: "&c{player} &6adlı oyuncu özel mesajları kabul etmiyor."
+  player-not-found: "&cBu oyuncu &6çevrimdışı."
+  private-message-sent: "&aÖzel mesajınız &e{target} &6adlı oyuncuya gönderildi."
+  open-global-message: "&cGlobal sohbeti kullanabilmek için &6global mesajları açmalısınız."
+  chat-disabled: "&cSohbet şu anda &6devre dışı. &cMesaj göndermeye izniniz yok."
+  usage: "&cDoğru kullanım: &6/pm &e<oyuncu_adi> <mesaj>"
+  self-message: "&cKendinize mesaj gönderemezsiniz."
+  player-blocked: "&c{player} &6adlı oyuncu sizi engellediği için mesaj gönderilemez."
+  pcooldown: "&cÖzel mesaj göndermeden önce beklemeniz gerekiyor. Kalan süre: &e{time}s"
+cooldowns:
+  global-time: 30 # Varsayılan bekleme süresi (saniye)
+  time: 10 # Özel mesajlar için bekleme süresi (saniye)
+  enabled: true # Bekleme sistemi etkinleştirilsin mi?
+
+database:
+  globalMessageTable: "global_message_settings"
+  privateMessageTable: "private_message_settings"
+  blockTable: "blocked_player_table"
+
+commands:
+  chat-toggle:
+    usage: "&cDoğru kullanım: &6/chattoggle &e<global/private> <on/off>"
+    invalid-type: "&cGeçersiz sohbet türü. &6Geçerli türler: &eglobal&7, &eprivate"
+    private:
+      enabled: "&aÖzel mesajlar &6açıldı."
+      disabled: "&cÖzel mesajlar &6kapatıldı."
+    global:
+      enabled: "&aGlobal mesajlar &6açıldı."
+      disabled: "&cGlobal mesajlar &6kapatıldı."
+
+settings:
+  chatstatus:
+    enabled : false # Sohbet kullanımını etkinleştir
+
+permissions:
+  chat-bypass: "chatcontrol.bypass" # Sohbet göndermek için gerekli izin
+
 
 ```
 
