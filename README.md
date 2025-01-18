@@ -101,6 +101,11 @@ settings:
 - `/global <message>` – Send a global message to all players.
 - `/pm <player_name> <message>` – Send a private message to a specific player.
 - `/allchat <global/private> <on/off>` – Enable or disable global/private chat for the user.
+- `/private-block <player-name>` – Block user from private-message (pm).
+- `/private-unblock <player-name>` – UnBlock user from private-message (pm).
+- `/globalreload` – Realod plugin configration file (config.yml).
+- `/lobal <msg> ` – Send your message in Global Chat.
+
 
 ### Example:
 
@@ -124,7 +129,7 @@ This plugin is licensed under the MIT License. See the LICENSE file for details.
 
 prefixes:
   global: "&8[&6Global&8]"
-  private: "&8[&dOzel&8]"
+  private: "&8[&dPrivate&8]"
 
 colors:
   private: "&d"
@@ -132,54 +137,68 @@ colors:
   player: "&e"
 
 messages:
-  private-message-sender: "&8[&dOzel&8] &e{sender} &7-> &e{receiver}&7: &f{message}"
-  private-message-receiver: "&8[&dOzel&8] &e{sender} &7-> &e{receiver}&7: &f{message}"
-  only-players: "&cBu komut yalnizca oyuncular tarafindan &6kullanilabilir."
-  cooldown: "&6Sohbet icin beklemeniz gerekiyor. &cKalan sure: &e{time}s"
-  global-usage: "&cDogru kullanim: &6/globalmessage &e<mesaj>"
-  private-usage: "&cDogru kullanim: &6/pm &e<oyuncu_adi> <mesaj>"
-  no-permission: "&cBu komutu kullanmak icin &6gerekli izne sahip degilsiniz."
-  error-invalid-cooldown-time: "&cGecersiz cooldown suresi &6girildi!"
-  global-message-sent: "&aMesajiniz &6basariyla gonderildi."
-  private-disabled: "&c{player} &6adli oyuncu ozel mesajlari kabul etmiyor."
-  player-not-found: "&cBu oyuncu &6cevrimdisi."
-  private-message-sent: "&aOzel mesajiniz &e{target} &6adli oyuncuya gonderildi."
-  open-global-message: "&cGlobal sohbeti kullanabilmek icin &6global mesajlari acmalisiniz."
-  chat-disabled: "&cSohbet su anda &6devre disi. &cMesaj gondermek icin izniniz yok."
-
+  private-message-sender: "&8[&dPrivate&8] &e{sender} &7-> &e{receiver}&7: &f{message}"
+  private-message-receiver: "&8[&dPrivate&8] &e{sender} &7-> &e{receiver}&7: &f{message}"
+  only-players: "&cThis command can only be used by &6players."
+  cooldown: "&6You must wait before chatting again. &cTime left: &e{time}s"
+  global-usage: "&cCorrect usage: &6/globalmessage &e<message>"
+  private-usage: "&cCorrect usage: &6/pm &e<player_name> <message>"
+  no-permission: "&cYou do not have the &6required permission &cto use this command."
+  error-invalid-cooldown-time: "&cInvalid cooldown time &6entered!"
+  global-message-sent: "&aYour message has been &6successfully sent."
+  private-disabled: "&c{player} &6has disabled private messages."
+  player-not-found: "&cThe player is &6offline."
+  private-message-sent: "&aYour private message has been sent to &e{target}."
+  open-global-message: "&cYou must enable &6global messages &cto use the global chat."
+  chat-disabled: "&cChat is currently &6disabled. &cYou are not allowed to send messages."
+  usage: "&cCorrect usage: &6/pm &e<player_name> <message>"
+  self-message: "&cYou cannot send a message to yourself."
+  player-blocked: "&c{player} &6has blocked you, and your message cannot be sent."
+  pcooldown: "&cYou must wait before sending another private message. Time left: &e{time}s"
 cooldowns:
-  global-time: 30 # Varsayilan cooldown suresi (saniye)
-  time: 10 # Ozel mesajlar icin cooldown suresi (saniye)
-  enabled: true # Cooldown sistemini etkinlestir
+  global-time: 30 # Default cooldown time (seconds)
+  time: 10 # Cooldown time for private messages (seconds)
+  enabled: true # Enable the cooldown system
 
 database:
   globalMessageTable: "global_message_settings"
   privateMessageTable: "private_message_settings"
+  blockTable: "blocked_player_table"
 
 commands:
   chat-toggle:
-    usage: "&cDogru kullanim: &6/chattoggle &e<global/private> <on/off>"
-    invalid-type: "&cGecersiz sohbet turu. &6Gecerli turler: &eglobal&7, &eprivate"
+    usage: "&cCorrect usage: &6/chattoggle &e<global/private> <on/off>"
+    invalid-type: "&cInvalid chat type. &6Valid types: &eglobal&7, &eprivate"
     private:
-      enabled: "&aOzel mesajlar &6acildi."
-      disabled: "&cOzel mesajlar &6kapatildi."
+      enabled: "&aPrivate messages have been &6enabled."
+      disabled: "&cPrivate messages have been &6disabled."
     global:
-      enabled: "&aGlobal mesajlar &6acildi."
-      disabled: "&cGlobal mesajlar &6kapatildi."
+      enabled: "&aGlobal messages have been &6enabled."
+      disabled: "&cGlobal messages have been &6disabled."
 
 settings:
   chatstatus:
-    enabled : false # sohbeti kullanım
+    enabled : false # Enable or disable chat usage
 
 permissions:
-  chat-bypass: "chatcontrol.bypass" # Sohbet göndermek için gerekli izin
+  chat-bypass: "chatcontrol.bypass" # Permission required to send chat messages
+
 ```
+
 ### Dependencies
+``` Maven
+ - OMC
+ - PLACEHOLDER API
+```
 
-##### - OMC
-##### - PLACEHOLDER API
+### Placeholders
+```YML
+%OLA_globalMessageStatus%
+%OLA_privateMessageStatus%
+%OLA_chatStatus%
+%OLA_blockedPlayers%
 
-
+```
 If you have any issues or need help, please contact the plugin author or create an issue in the GitHub repository.
 
 ---
